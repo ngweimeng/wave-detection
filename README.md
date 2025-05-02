@@ -1,7 +1,11 @@
 # Wave Detection for Surfers
 
-## Work in Progress
-WIP
+## Introduction
+This project uses machine learning to find the “pocket” of a wave — the best spot on a breaking wave where a surfer can go the fastest and stay in control. It works by analyzing surf footage, frame by frame, to predict where this pocket is. The idea comes from something surfers often do on the beach called “mind surfing,” where they watch the waves and imagine how they would ride them, choosing the best line without actually getting in the water.
+
+![Parts of a Wave](https://www.saltwater-dreaming.com/learn-to-surf/images/parts-of-a-wave.jpg)
+*Source: [Saltwater Dreaming](https://www.saltwater-dreaming.com/learn-to-surf/parts-of-a-wave.htm)*
+
 
 ## Project Organization
 
