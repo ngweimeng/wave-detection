@@ -7,6 +7,11 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+runs/
+Wave-Detection-Weligama-1/
+content/
+data/raw_video/
+data/unlabelled_frames/
 env/
 build/
 develop-eggs/
