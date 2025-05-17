@@ -284,7 +284,8 @@ col2.markdown(explanation)
 st.markdown("---")
 st.header("Real-Time Video Inference Demo")
 
-# Display live inference video
+# First: inference on Canggu footage (trained location)
+st.subheader("Inference on Canggu Surf Footage")
 st.video(
     "assets/Inference_video.mp4",
     format="video/mp4",
@@ -296,9 +297,25 @@ st.video(
 
 st.markdown(
     """
-    To demonstrate real-time performance, I applied the trained model to a never-seen video stream. In the clip above, the model consistently and accurately detects both left- and right-hand pockets in each frame—highlighting its robustness when faced with new wave scenarios.
+    To demonstrate real-time performance, I applied the trained model to a never-before-seen Canggu surf video (the same break as our training data). In the clip above, the model consistently and accurately detects both left- and right-hand pockets in each frame.
     
     It’s truly impressive to see such reliable detection on first-pass inference, underscoring the model’s ability to generalize to brand-new surf footage.
+    """
+)
+
+# Second: inference on a different break (pipeline footage)
+st.subheader("Inference on Pipeline Surf Footage")
+st.video(
+    "assets/pipeline_interference.mp4",
+    format="video/mp4",
+    start_time=0,
+    loop=True,
+    autoplay=True,
+    muted=True,
+)
+st.markdown(
+    """
+    Next, This second clip is from the world-famous Pipeline break—completely different from our training waves. Despite never seeing Pipeline footage, the model correctly finds most left-hand pockets and even captures many of the more subtle right-hand pockets. A few gentle right pockets slip by, but overall the detector holds up remarkably well, demonstrating strong generalization across surf locations.
     """
 )
 
