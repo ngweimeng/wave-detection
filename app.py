@@ -7,6 +7,11 @@ import yaml
 # Set page config
 st.set_page_config(page_title="Surf Pocket Detector", page_icon="🏄")
 
+# Sidebar
+st.sidebar.title("📖 Project Links")
+st.sidebar.markdown("[View on GitHub](https://github.com/ngweimeng/wave-detection)")
+st.sidebar.markdown("💬 Questions or suggestions? Feel free to reach out on my GitHub!")
+
 # Title and Introduction
 st.title("Wave Detection for Surfing with Computer Vision")
 st.header("Introduction")
