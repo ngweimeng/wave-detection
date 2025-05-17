@@ -320,7 +320,7 @@ st.markdown(
 )
 
 # Third: inference on WSL competition footage (Bells Beach)
-st.subheader("Inference on WSL Competition Footage")
+st.subheader("Inference on World Surf League (WSL) Competition Footage")
 st.video(
     "assets/kanoa_igarashi_surf_video.mp4",
     format="video/mp4",
