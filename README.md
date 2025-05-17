@@ -8,51 +8,11 @@ This project uses machine learning to find the “pocket” of a wave — the be
 
 In the diagram above, the "pocket" refers to the steep, powerful zone just ahead of where the wave breaks. This is where surfers aim to stay for optimal performance — and the region that this model is trained to detect.
 
-## Project Organization
-
-```
-├── LICENSE            <- Open-source license if one is chosen
-├── README.md          <- The top-level README for developers using this project
-├── data
-│   ├── external       <- Data from third party sources
-│   ├── interim        <- Intermediate data that has been transformed
-│   ├── processed      <- The final, canonical data sets for modeling
-│   └── raw            <- The original, immutable data dump
-│
-├── models             <- Trained and serialized models, model predictions, or model summaries
-│
-├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-│                         the creator's initials, and a short `-` delimited description, e.g.
-│                         `1.0-jqp-initial-data-exploration`
-│
-├── references         <- Data dictionaries, manuals, and all other explanatory materials
-│
-├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-│   └── figures        <- Generated graphics and figures to be used in reporting
-│
-├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-│                         generated with `pip freeze > requirements.txt`
-│
-└── src                         <- Source code for this project
-    │
-    ├── __init__.py             <- Makes src a Python module
-    │
-    ├── config.py               <- Store useful variables and configuration
-    │
-    ├── dataset.py              <- Scripts to download or generate data
-    │
-    ├── features.py             <- Code to create features for modeling
-    │
-    │    
-    ├── modeling                
-    │   ├── __init__.py 
-    │   ├── predict.py          <- Code to run model inference with trained models          
-    │   └── train.py            <- Code to train models
-    │
-    ├── plots.py                <- Code to create visualizations 
-    │
-    └── services                <- Service classes to connect with external platforms, tools, or APIs
-        └── __init__.py 
-```
-
---------
+## Features
+- **Frame Extraction**: Converts MP4 clips to 1 fps frames (1280×720) via FFmpeg.  
+- **Annotation**: Batch-uploaded frames to Roboflow and drew bounding boxes on 2,077 images (~1,200 pockets).  
+- **Data Splits**: Random 70/20/10 train/validation/test split, with an expandable Streamlit explainer.  
+- **Model Training**: Fine-tuned YOLOv8-nano (`yolov8n.pt`) for 40 epochs (early stopping patience = 10) on 512×512 crops, batch size = 16.  
+- **Performance Analysis**: Interactive dropdown in Streamlit to explore confusion matrix, F1-confidence, precision-confidence, precision-recall (mAP@0.5), and recall-confidence curves.  
+- **Real-Time Inference**: Live demo on unseen video showing accurate pocket detection (left/right) with autoplay & loop.  
+- **Limitations & Future Work**: Data-volume biases highlighted, plus proposed enhancements and surf-coaching applications.
