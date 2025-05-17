@@ -315,7 +315,7 @@ st.video(
 )
 st.markdown(
     """
-    Next, This second clip is from the world-famous Pipeline break—completely different from our training waves. Despite never seeing Pipeline footage, the model correctly finds most left-hand pockets and even captures many of the more subtle right-hand pockets. A few gentle right pockets slip by, but overall the detector holds up remarkably well, demonstrating strong generalization across surf locations.
+    Next, I tested the model on a completely new surf location—the world-famous Pipeline. Despite never having seen Pipeline footage, the detector correctly identified most left-hand pockets and even captured many of the subtler right-hand pockets. A few of the gentler right pockets were missed, but overall the model performed well, demonstrating strong generalization across different breaks.
     """
 )
 
