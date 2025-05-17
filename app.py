@@ -319,6 +319,21 @@ st.markdown(
     """
 )
 
+# Third: inference on WSL competition footage (Bells Beach)
+st.subheader("Inference on WSL Competition Footage")
+st.video(
+    "assets/kanoa_igarashi_surf_video.mp4",
+    format="video/mp4",
+    start_time=0,
+    loop=True,
+    autoplay=True,
+    muted=True,
+)
+st.markdown(
+    """
+    To stress-test the model, I applied it to WSL competition footage of Kanoa Igarashi (also my surfing idol 😂) at Bells Beach (Rip Curl Pro 2025). Despite heavy whitewash and much larger waves, it accurately pinpointed the pocket zones—a pleasantly surprising result I hadn’t expected.
+    """
+)
 # Future Applications
 st.markdown("---")
 st.header("Potential Improvements")
