@@ -275,35 +275,57 @@ col1, col2 = st.columns([4, 2])
 col1.image(img_path, caption=metric, use_container_width=True)
 col2.markdown(explanation)
 
-
 # Data Sample Section
 st.markdown("---")
-st.header("Data Sample")
-# Load sample images
-dataset_dir = "Wave-Detection-Weligama-1/train/images"
-if os.path.isdir(dataset_dir):
-    image_paths = glob.glob(os.path.join(dataset_dir, "*.jpg"))[:6]
-    cols = st.columns(3)
-    for idx, img_path in enumerate(image_paths):
-        img = Image.open(img_path)
-        cols[idx % 3].image(
-            img, caption=os.path.basename(img_path), use_container_width=True
-        )
-else:
-    st.warning(f"Data directory not found at {dataset_dir}.")
+st.header("Real-Time Video Inference Demo")
 
-# Future Applications & Limitations
-st.markdown("---")
-st.header("Limitations & Future Applications")
+# Display live inference video
+st.video(
+    "assets/Inference_video.mp4",
+    format="video/mp4",
+    start_time=0,
+    loop=True,
+    autoplay=True,
+    muted=True,
+)
+
 st.markdown(
     """
-    **Limitations:**
-    - Data is from a single break (Rocky Point) and morning conditions.
-    - Nano model trades some accuracy for speed; may struggle on distant or low-contrast pockets.
+    To demonstrate real-time performance, I applied the trained model to a never-seen video stream. In the clip above, the model consistently and accurately detects both left- and right-hand pockets in each frame—highlighting its robustness when faced with new wave scenarios.
+    
+    It’s truly impressive to see such reliable detection on first-pass inference, underscoring the model’s ability to generalize to brand-new surf footage.
+    """
+)
 
-    **Future Applications:**
-    - Deploy as an interactive "surf coach" overlay for training videos.
-    - Integrate into smart surf cameras for live wave highlighting, wave count, and performance analytics.
-    - Extend training set to multiple breaks and lighting conditions, and explore larger YOLO variants for higher accuracy.
+# Future Applications & Limitations
+# Limitations & Future Directions
+st.markdown("---")
+st.header("Limitations")
+st.markdown(
+    """
+    While the pocket detector performs strongly on our test data, there are a few important caveats:
+    1. **Single location:** All labeled data is from Canggu beach; generalization to other surf break locations are unknown.  
+    2. **Data volume:** We used ~2,077 images (∼1,200 pockets). More examples—across different lighting, wave sizes, and camera angles—would improve robustness.  
+
+    **Potential Improvements**  
+    - Switch to a larger YOLOv8 variant (e.g., small or medium) for richer feature extraction  
+    - Train on full-resolution frames instead of downsampled 512×512 crops  
+    - Expand the dataset beyond 2,000 images with diverse wave and weather conditions  
+    - Increase epochs (and monitor mAP improvements) to ensure convergence  
+    - Perform systematic hyperparameter tuning (learning rate, augmentation mix, etc.)  
+    """
+)
+
+st.header("Future Applications")
+st.markdown(
+    """
+    - **Interactive surf coach:** Overlay pocket bounding boxes on surfers’ own videos to highlight optimal positioning for speed and control.  
+    - **Smart surf cameras:** Enhance live cam feeds by tracking:
+      - Average wave ride duration  
+      - Waves caught vs. missed ratio  
+      - Real-time pocket zone visualization at any break  
+    - **Session analytics dashboard:** Aggregate pocket detection over a session to score performance and track progress over time.  
+
+    These enhancements and applications demonstrate how pocket detection can evolve into a comprehensive tool for surf training and beach monitoring.
     """
 )
