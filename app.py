@@ -306,7 +306,7 @@ st.markdown(
 # Second: inference on a different break (pipeline footage)
 st.subheader("Inference on Pipeline Surf Footage")
 st.video(
-    "assets/pipeline_interference.mp4",
+    "assets/pipeline_inference.mp4",
     format="video/mp4",
     start_time=0,
     loop=True,
