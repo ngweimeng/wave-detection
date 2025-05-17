@@ -21,7 +21,7 @@ st.markdown(
 
     While I dream of landing an aerial 360 or finding that perfect barrel, I realized it all comes down to mastering the fundamentals: positioning yourself in the “pocket” of the wave, where speed and control meet. That spark led me here—to build a computer vision model that can track the pocket frame by frame, helping surfers visualize their best line before they even paddle out.
 
-    This project demonstrates how we break surf footage into individual frames, and use a fine‑tuned YOLOv8‑nano model to predict the pocket in real time. The idea comes from something surfers often do on the beach called “mind surfing”—watching waves from the beach and imagining how to ride them—and now we’re teaching a machine to do the same.
+    This project demonstrates how to break surf footage into individual frames, and use a fine‑tuned YOLOv8‑nano model to predict the pocket in real time. The idea comes from something surfers often do on the beach called “mind surfing”—watching waves from the beach and imagining how to ride them—and now we’re teaching a machine to do the same.
     """
 )
 
@@ -95,7 +95,7 @@ st.markdown("---")
 st.header("Data Labeling")
 st.markdown(
     """
-    First, I labelled every “pocket” in each frame using Roboflow’s annotation tool. In total, we annotated 2,077 frames, marking approximately 3000 pockets. Once all 2077 frames were labeled, I then created a 70/20/10 train/valid/test split of the data. This is a common practice in machine learning to ensure that the model can generalize well to unseen data. The split was done randomly, ensuring that each set had a good representation of the different types of pockets.
+    First, I labelled every “pocket” in each frame using Roboflow’s annotation tool. In total, I annotated 2,077 frames, marking approximately 3000 pockets. Once all 2077 frames were labeled, I then created a 70/20/10 train/valid/test split of the data. This is a common practice in machine learning to ensure that the model can generalize well to unseen data. The split was done randomly, ensuring that each set had a good representation of the different types of pockets.
     """
 )
 
@@ -319,35 +319,20 @@ st.markdown(
     """
 )
 
-# Future Applications & Limitations
-# Limitations & Future Directions
+# Future Applications
 st.markdown("---")
-st.header("Limitations")
+st.header("Potential Improvements")
 st.markdown(
     """
-    While the pocket detector performs strongly on our test data, there are a few important caveats:
-    1. **Single location:** All labeled data is from Canggu beach; generalization to other surf break locations are unknown.  
-    2. **Data volume:** We used ~2,077 images (∼1,200 pockets). More examples—across different lighting, wave sizes, and camera angles—would improve robustness.  
-
-    **Potential Improvements**  
-    - Switch to a larger YOLOv8 variant (e.g., small or medium) for richer feature extraction  
-    - Train on full-resolution frames instead of downsampled 512×512 crops  
-    - Expand the dataset beyond 2,000 images with diverse wave and weather conditions  
-    - Increase epochs (and monitor mAP improvements) to ensure convergence  
-    - Perform systematic hyperparameter tuning (learning rate, augmentation mix, etc.)  
+    One way to boost accuracy is to switch to a larger YOLOv8 variant—such as small or medium—to leverage richer feature extraction. Training on full-resolution frames, rather than downsampled 512×512 crops, could also help capture finer wave details. Expanding the dataset beyond 2,000 images with a wider variety of wave types, lighting, and weather conditions will improve robustness. Increasing the number of training epochs—while monitoring mAP for diminishing returns—can ensure the model fully converges. Finally, performing systematic hyperparameter tuning (for learning rate, augmentation mix, and other settings) will help identify the optimal configuration for peak performance.
     """
 )
 
 st.header("Future Applications")
 st.markdown(
     """
-    - **Interactive surf coach:** Overlay pocket bounding boxes on surfers’ own videos to highlight optimal positioning for speed and control.  
-    - **Smart surf cameras:** Enhance live cam feeds by tracking:
-      - Average wave ride duration  
-      - Waves caught vs. missed ratio  
-      - Real-time pocket zone visualization at any break  
-    - **Session analytics dashboard:** Aggregate pocket detection over a session to score performance and track progress over time.  
+    Imagine using this pocket detector as an **interactive surf coach**, where surfers upload their own footage and instantly see bounding boxes highlighting the optimal position for speed and control. It could power **smart surf cameras** that track metrics like average ride duration, waves caught versus missed, and display the pocket zone in real time at any break. For coaches and athletes, a **session analytics dashboard** could aggregate pocket detections over an entire surf session to score performance and track improvement over time.
 
-    These enhancements and applications demonstrate how pocket detection can evolve into a comprehensive tool for surf training and beach monitoring.
+    Together, these possibilities show how pocket detection can evolve into a comprehensive suite of surf-training and beach-monitoring tools. Thank you for exploring this project—feel free to open an issue or reach out on GitHub with ideas and feedback!
     """
 )
