@@ -95,7 +95,7 @@ st.markdown("---")
 st.header("Data Labeling")
 st.markdown(
     """
-    First, we drew a box around every “pocket” in our images using Roboflow’s annotation tool. In total, we annotated 2,077 images, marking approximately 3000 pockets. Once all 2077 images were labeled, I then created a 70/20/10 train/valid/test split of the data. This is a common practice in machine learning to ensure that the model can generalize well to unseen data. The split was done randomly, ensuring that each set had a good representation of the different types of pockets.
+    First, I labelled every “pocket” in each frame using Roboflow’s annotation tool. In total, we annotated 2,077 frames, marking approximately 3000 pockets. Once all 2077 frames were labeled, I then created a 70/20/10 train/valid/test split of the data. This is a common practice in machine learning to ensure that the model can generalize well to unseen data. The split was done randomly, ensuring that each set had a good representation of the different types of pockets.
     """
 )
 
@@ -112,11 +112,11 @@ with st.expander("What’s a train/validation/test split?"):
 
 st.markdown(
     """
-    Before export, we ran **Auto‑Orient** on every image. This step removes hidden orientation tags (EXIF data) so that all images display correctly—whether they were taken in portrait or landscape—avoiding accidental mix‑ups during training.
+    Before export, I ran **Auto‑Orient** on every image. This step removes hidden orientation tags (EXIF data) so that all images display correctly—whether they were taken in portrait or landscape—avoiding accidental mix‑ups during training.
 
-    We then **downsampled** each image to 640×640 pixels. Smaller images load faster and still contain enough detail for pocket detection.
+    I then **downsampled** each image to 640×640 pixels. Smaller images load faster and still contain enough detail for pocket detection.
 
-    Finally, we exported everything in **YOLOv8 TXT format**. Each split folder (train/valid/test) has:
+    Finally, I exported everything in **YOLOv8 TXT format**. Each split folder (train/valid/test) has:
     1. An `images/` folder with the `.jpg` files  
     2. A `labels/` folder with matching `.txt` files  
     """
@@ -162,9 +162,9 @@ st.markdown(
 
 st.markdown(
     """
-    When training, we set the task to **detection** and pointed the model argument to `yolov8n.pt`. YOLOv8-nano is the smallest of the five YOLOv8 variants, with 225 layers and roughly 3 million parameters. We trained for **40 epochs**, using **early stopping** with a patience of 10 epochs—so training halts if accuracy doesn’t improve for 10 consecutive rounds. Inputs were resized to 512×512 and processed in batches of 16.
+    When training, I set the task to **detection** and pointed the model argument to `yolov8n.pt`. YOLOv8-nano is the smallest of the five YOLOv8 variants, with 225 layers and roughly 3 million parameters. We trained for 40 epochs, using early stopping with a patience of 10 epochs—so training halts if accuracy doesn’t improve for 10 consecutive rounds. Inputs were resized to 512×512 and processed in batches of 16.
 
-    After fine-tuning, we first checked performance on our 20% validation split, then ran a final evaluation on the 10% test split using a confidence threshold of 0.3. The resulting weights (`best.pt`) were exported and deployed via the Roboflow API, so I could conduct inference tasks on other video frames.
+    After fine-tuning, I first checked the performance on our 20% validation split, then ran a final evaluation on the 10% test split using a confidence threshold of 0.3. The resulting weights (`best.pt`) were exported and deployed via the Roboflow API, so I could conduct inference tasks on other video frames.
     """
 )
 
@@ -205,7 +205,7 @@ else:
 # Performance Analysis – Selectable Metrics
 st.markdown(
     """
-    Next, use the dropdown below to explore key performance metrics from training, including the confusion matrix, F1-confidence curve, precision-confidence curve, precision-recall curve (mAP@0.5), and recall-confidence curve.    
+    Next, I’ll dive into the model’s performance metrics. Use the dropdown below to explore: (1) confusion matrix, (2) F1-confidence curve, (3) precision-confidence curve, (4) precision-recall curve (mAP@0.5), and (5) recall-confidence curve.    
     """
 )
 # Dropdown for metric selection
@@ -299,7 +299,7 @@ st.markdown(
     """
     To demonstrate real-time performance, I applied the trained model to a never-before-seen Canggu surf video (the same break as our training data). In the clip above, the model consistently and accurately detects both left- and right-hand pockets in each frame.
     
-    It’s truly impressive to see such reliable detection on first-pass inference, underscoring the model’s ability to generalize to brand-new surf footage.
+    I was deeply impressed by the model’s reliable first-pass detections, which underscore its ability to generalize to entirely new surf footage.
     """
 )
 
