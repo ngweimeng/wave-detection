@@ -11,7 +11,7 @@ Your browser does not support the video tag.
 </video>
 
 ### Pipeline Break Footage  
-[![Pipeline Break GIF](assets/pipeline.gif)](assets/pipeline_inference.mp4)
+[![Pipeline Break GIF](assets/pipeline_inference.gif)](assets/pipeline_inference.mp4)
 
 ### World Surf League Competition Footage
 <video src="assets/kanoa_igarashi_surf_video.mp4" controls width="600">
