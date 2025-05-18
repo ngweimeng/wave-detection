@@ -336,6 +336,23 @@ st.markdown(
     To stress-test the model further, I applied it to WSL competition footage of Kanoa Igarashi (also my favourite surfer 😂) at Bells Beach (Rip Curl Pro 2025). Despite heavy whitewash and much larger waves, it accurately pinpointed the pocket zones—a pleasantly surprising result I hadn’t expected.
     """
 )
+
+# Fourth: inference on personal surf footage (bonus clip)
+st.subheader("Bonus: Inference on My Own Surf Footage")
+st.video(
+    "assets/inference_bonus.mp4",
+    format="video/mp4",
+    start_time=0,
+    loop=True,
+    autoplay=True,
+    muted=True,
+)
+st.markdown(
+    """
+    As a final test, I ran the model on a clip of my own surf session. Despite the low resolution and heavy whitewash, it still locked onto the main pocket zones—although it amusingly once mistook me for a pocket! This shows that the model still has some areas for refinement, but otherwise demonstrates the model's performance under challenging conditions.
+    """
+)
+
 # Potential Improvements
 st.markdown("---")
 st.header("Potential Improvements")
