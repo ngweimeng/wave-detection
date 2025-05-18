@@ -16,6 +16,22 @@ st.sidebar.markdown(
 
 # Title and Introduction
 st.title("Wave Detection for Surfing with Computer Vision")
+st.markdown(
+    "<h3 style='color:#888;font-style:italic;'>"
+    "Real-time identification of wave ‘pockets’ in surf footage using a fine-tuned YOLOv8-nano model"
+    "</h3>",
+    unsafe_allow_html=True,
+)
+st.markdown(
+    "<p style='color:#888;'>"
+    "Written by Ng Wei Meng — "
+    "<a href='https://github.com/ngweimeng/wave-detection' target='_blank'>GitHub</a> | "
+    "<a href='https://www.linkedin.com/in/weimengng/' target='_blank'>LinkedIn</a>"
+    "</p>",
+    unsafe_allow_html=True,
+)
+st.markdown("---")
+
 st.header("Introduction")
 st.markdown(
     """
