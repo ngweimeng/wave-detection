@@ -10,18 +10,14 @@ Below are four inference videos produced by the model. Each demonstrates pocket 
 Your browser does not support the video tag.
 </video>
 
-### Pipeline Break Footage  
+### Pipeline Break Inference  
 [![Pipeline Break GIF](assets/pipeline_inference.gif)](assets/pipeline_inference.mp4)
 
-### World Surf League Competition Footage
-<video src="assets/kanoa_igarashi_surf_video.mp4" controls width="600">
-Your browser does not support the video tag.
-</video>
+### World Surf League Competition Inference
+[![WSL Competition GIF](assets/kanoa_inference.gif)](assets/kanoa_igarashi_surf_video.mp4)
 
-### Personal Surf Session (Bonus)
-<video src="assets/inference_bonus.mp4" controls width="600">
-Your browser does not support the video tag.
-</video>
+### Personal Surf Session (Bonus)  
+[![Bonus Surf Session GIF](assets/inference_bonus.gif)](assets/inference_bonus.mp4)
 
 Visit the Streamlit site for more details: [wave-pocket-detection.streamlit.app](https://wave-pocket-detection.streamlit.app/)
 
