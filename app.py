@@ -1,8 +1,5 @@
 import streamlit as st
-from PIL import Image
 import os
-import glob
-import yaml
 
 # Set page config
 st.set_page_config(page_title="Surf Pocket Detector", page_icon="🏄")
