@@ -9,8 +9,10 @@ st.set_page_config(page_title="Surf Pocket Detector", page_icon="🏄")
 
 # Sidebar
 st.sidebar.title("📖 Project Links")
-st.sidebar.markdown("[View on GitHub](https://github.com/ngweimeng/wave-detection)")
-st.sidebar.markdown("💬 Questions or suggestions? Feel free to reach out on my GitHub!")
+st.sidebar.markdown(
+    "💬 Questions or suggestions? Feel free to reach out on [GitHub](https://github.com/ngweimeng/wave-detection) or [LinkedIn](https://www.linkedin.com/in/weimengng/)!"
+)
+
 
 # Title and Introduction
 st.title("Wave Detection for Surfing with Computer Vision")
@@ -315,7 +317,7 @@ st.video(
 )
 st.markdown(
     """
-    Next, I tested the model on a completely new surf location—the world-famous Pipeline. Despite never having seen Pipeline footage, the detector correctly identified most left-hand pockets and even captured many of the subtler right-hand pockets. A few of the gentler right pockets were missed, but overall the model performed well, demonstrating strong generalization across different breaks.
+    Next, I tested the model on a completely new surf location that it has not been trained on—the world-famous Pipeline in Hawaii. Despite never having seen Pipeline footage, the detector correctly identified most left-hand pockets and even captured many of the subtler right-hand pockets. A few of the gentler right pockets were missed, but overall the model performed well, demonstrating strong generalization across different breaks.
     """
 )
 
@@ -331,23 +333,35 @@ st.video(
 )
 st.markdown(
     """
-    To stress-test the model, I applied it to WSL competition footage of Kanoa Igarashi (also my surfing idol 😂) at Bells Beach (Rip Curl Pro 2025). Despite heavy whitewash and much larger waves, it accurately pinpointed the pocket zones—a pleasantly surprising result I hadn’t expected.
+    To stress-test the model further, I applied it to WSL competition footage of Kanoa Igarashi (also my favourite surfer 😂) at Bells Beach (Rip Curl Pro 2025). Despite heavy whitewash and much larger waves, it accurately pinpointed the pocket zones—a pleasantly surprising result I hadn’t expected.
     """
 )
-# Future Applications
+# Potential Improvements
 st.markdown("---")
 st.header("Potential Improvements")
 st.markdown(
     """
-    One way to boost accuracy is to switch to a larger YOLOv8 variant—such as small or medium—to leverage richer feature extraction. Training on full-resolution frames, rather than downsampled 512×512 crops, could also help capture finer wave details. Expanding the dataset beyond 2,000 images with a wider variety of wave types, lighting, and weather conditions will improve robustness. Increasing the number of training epochs—while monitoring mAP for diminishing returns—can ensure the model fully converges. Finally, performing systematic hyperparameter tuning (for learning rate, augmentation mix, and other settings) will help identify the optimal configuration for peak performance.
+    To further strengthen the wave pocket detector model, the following enhancements can be considered:
+
+    - Switch to a larger YOLOv8 variant (e.g., small or medium) for richer feature extraction.  
+    - Train on full-resolution frames instead of 512×512 crops to preserve wave detail.  
+    - Expand the dataset beyond 2,000 images with diverse wave types, lighting, and weather.  
+    - Increase training epochs—monitor mAP to find the point of diminishing returns.  
+    - Perform systematic hyperparameter tuning (learning rate, augmentations, etc.) for optimal performance.
     """
 )
 
+# Future Applications
+st.markdown("---")
 st.header("Future Applications")
 st.markdown(
     """
-    Imagine using this pocket detector as an **interactive surf coach**, where surfers upload their own footage and instantly see bounding boxes highlighting the optimal position for speed and control. It could power **smart surf cameras** that track metrics like average ride duration, waves caught versus missed, and display the pocket zone in real time at any break. For coaches and athletes, a **session analytics dashboard** could aggregate pocket detections over an entire surf session to score performance and track improvement over time.
+    The wave pocket detector model also opens up a range of other practical uses:
 
-    Together, these possibilities show how pocket detection can evolve into a comprehensive suite of surf-training and beach-monitoring tools. Thank you for exploring this project—feel free to open an issue or reach out on GitHub with ideas and feedback!
+    - **Interactive surf coaching** by overlaying pocket zones on surfers’ own videos for real-time feedback.  
+    - **Smart surf cameras** that track metrics like average ride duration, catch/miss ratio, and display the pocket zone live at any break.  
+    - **Session analytics dashboards** to aggregate pocket detections over a session, score performance, and visualize progress over time.
+
+    These possibilities show how pocket detection can evolve into a suite of surf-training and beach-monitoring tools. Thank you for exploring this project with me—feel free to open an issue or reach out on [GitHub](https://github.com/ngweimeng/wave-detection) or [LinkedIn](https://www.linkedin.com/in/weimengng/) with ideas and feedback!
     """
 )
