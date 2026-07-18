@@ -96,6 +96,10 @@ target/
 
 # Exclude trained models
 /models/
+*.pt
+
+# Exclude local run logs
+upload_log.txt
 
 # exclude data from source control by default
 # /data/

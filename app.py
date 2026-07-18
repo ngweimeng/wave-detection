@@ -4,6 +4,14 @@ import os
 # Set page config
 st.set_page_config(page_title="Surf Pocket Detector", page_icon="🏄")
 
+
+def show_image(path: str, caption: str, container=st, missing_msg: str = None) -> None:
+    """Display an image if it exists, else show a warning in its place."""
+    if os.path.exists(path):
+        container.image(path, caption=caption, use_container_width=True)
+    else:
+        container.warning(missing_msg or f"Image not found at {path}.")
+
 # Sidebar
 st.sidebar.title("📖 Project Links")
 st.sidebar.markdown(
@@ -41,13 +49,7 @@ st.markdown(
 )
 
 # Show wave anatomy diagram
-diagram_path = "assets/pocket_eg.jpg"
-if os.path.exists(diagram_path):
-    st.image(
-        diagram_path, caption="Wave Anatomy: The Pocket Zone", use_container_width=True
-    )
-else:
-    st.warning(f"Diagram not found at {diagram_path}.")
+show_image("assets/pocket_eg.jpg", "Wave Anatomy: The Pocket Zone")
 
 st.markdown(
     """
@@ -65,15 +67,10 @@ st.markdown(
 )
 
 # Show Canggu Beach Image
-canggu_img = "assets/canggu_beach.png"
-if os.path.exists(canggu_img):
-    st.image(
-        canggu_img,
-        caption="Canggu Beach: left- and right-breaking waves, highlighted in red",
-        use_container_width=True,
-    )
-else:
-    st.warning(f"Canggu beach image not found at {canggu_img}.")
+show_image(
+    "assets/canggu_beach.png",
+    "Canggu Beach: left- and right-breaking waves, highlighted in red",
+)
 
 st.markdown(
     """
@@ -138,15 +135,7 @@ st.markdown(
 )
 
 # Show YOLOv8 TXT export diagram
-diagram_path = "assets/file_directory.png"
-if os.path.exists(diagram_path):
-    st.image(
-        diagram_path,
-        caption="Contents of the YOLOv8 PyTorch TXT export",
-        use_container_width=True,
-    )
-else:
-    st.warning(f"Diagram not found at {diagram_path}.")
+show_image("assets/file_directory.png", "Contents of the YOLOv8 PyTorch TXT export")
 
 st.markdown(
     """
@@ -199,23 +188,8 @@ preds_path = "assets/val_batch0_pred.jpg"
 # Display ground truth vs. predictions side by side
 col1, col2 = st.columns(2)
 
-if os.path.exists(labels_path):
-    col1.image(
-        labels_path,
-        caption="Manual labels: True pocket locations",
-        use_container_width=True,
-    )
-else:
-    col1.warning(f"Labels image not found at {labels_path}.")
-
-if os.path.exists(preds_path):
-    col2.image(
-        preds_path,
-        caption="Model predictions: Detected pockets",
-        use_container_width=True,
-    )
-else:
-    col2.warning(f"Predictions image not found at {preds_path}.")
+show_image(labels_path, "Manual labels: True pocket locations", container=col1)
+show_image(preds_path, "Model predictions: Detected pockets", container=col2)
 
 # Performance Analysis – Selectable Metrics
 st.markdown(

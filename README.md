@@ -19,9 +19,29 @@ Below are four inference videos produced by the model. Each demonstrates pocket 
 
 Visit the Streamlit site for more details: [wave-pocket-detection.streamlit.app](https://wave-pocket-detection.streamlit.app/)
 
+## Run Locally
 
+```bash
+git clone https://github.com/ngweimeng/wave-detection.git
+cd wave-detection
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+streamlit run app.py
+```
 
+The app opens at `http://localhost:8501`.
 
+## Project Structure
+
+```
+wave-detection/
+├── app.py                              # Streamlit write-up + results viewer
+├── upload_to_roboflow.ipynb            # Frame extraction + Roboflow upload
+├── train_model_with_custom_dataset.ipynb  # YOLOv8-nano fine-tuning
+├── assets/                             # Diagrams, metric plots, demo clips
+└── requirements.txt
+```
 
 
 
