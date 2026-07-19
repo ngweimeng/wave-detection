@@ -17,7 +17,9 @@ Below are four inference videos produced by the model. Each demonstrates pocket 
 ### Personal Surf Session (Bonus)  
 [![Bonus Surf Session GIF](assets/inference_bonus.gif)](assets/inference_bonus.mp4)
 
-Visit the Streamlit site for more details: [wave-pocket-detection.streamlit.app](https://wave-pocket-detection.streamlit.app/)
+**Interactive write-up:** [read the full case study →](https://claude.ai/code/artifact/07da97af-3c76-47f2-9909-9946b5f74794) — a self-contained page with the demo clips and metrics inline (no cold-start).
+
+_Optional:_ a live Streamlit version is also hosted at [wave-pocket-detection.streamlit.app](https://wave-pocket-detection.streamlit.app/) (may take a moment to wake).
 
 ## Run Locally
 
